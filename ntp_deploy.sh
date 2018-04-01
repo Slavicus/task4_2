@@ -15,7 +15,7 @@ SCR="$workdir/ntp_verify.sh"
 JOB="*/1 * * * * $SCR MAILTO=root@localhost"
 TMPC="crontmp"
 grep "$SCR" -q <(crontab -l) || (crontab -l>"$TMPC"; echo "$JOB">>"$TMPC"; crontab "$TMPC")
-rm crontmp
+rm $workdir/crontmp
 
 cat /etc/ntp.conf > /etc/ntp.conf.bak
 exit 0
