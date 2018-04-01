@@ -9,7 +9,7 @@ then apt-get install ntp -y; fi
 
 sed -i.bak 's/0.ubuntu.pool.ntp.org/ua.pool.ntp.org/g' /etc/ntp.conf
 sed -i.bak '/.ubuntu.pool.ntp.org/d' /etc/ntp.conf
-service ntp restart
+sudo service ntp restart
 
 SCR="$workdir/ntp_verify.sh"
 JOB="*/1 * * * * $SCR MAILTO=root@localhost"
